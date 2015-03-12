@@ -8,15 +8,15 @@
 # 20.times do
 #   Author.create(name: Faker::Name.name, email: Faker::Internet.email, city: Faker::Address.city, address: Faker::Address.street_address, born: Faker::Date.backward(100))
 # end
-10.times do
-  tag = FactoryGirl.create(:tag)
-end
-5.times do
+20.times do
   author = FactoryGirl.create(:author)
-  3.times do
+  rand(1..10).times do
     article = FactoryGirl.create(:article, author:author)
-    2.times do
+    rand(0..10).times do
       comment = FactoryGirl.create(:comment, article:article)
     end
   end
+end
+20.times do 
+	teg = FactoryGirl.create(:tag)
 end

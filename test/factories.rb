@@ -20,6 +20,6 @@ FactoryGirl.define do  factory :user do
     comment  Faker::Lorem.sentence(2, true)
   end
   factory :tag do
-    name Faker::Lorem.word 
+    name Faker::Lorem.word
   end
 end
