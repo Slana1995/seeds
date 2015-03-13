@@ -6,4 +6,5 @@
 <li class="list-group-item">City: <%= @author.city %></li>
 <li class="list-group-item">Address: <%= @author.address %></li>
 <li class="list-group-item">Date born: <%= @author.born %></li>
+<li class="list-group-item"> <%= link_to "Список статей", author_articles_path(@author.id) %></li>
 </ul>

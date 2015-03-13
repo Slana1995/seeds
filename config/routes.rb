@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
+  get 'article/index'
+
+  get 'article/show'
+
   resources :author
   root 'author#index'
 
   get 'author/:id' => 'author#show'
+
+  get 'author/:id/articles' => 'author#articles', :as => :author_articles
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
