@@ -1,16 +1,18 @@
-<h2>Список статей</h2>
+<h1>Список статей</h1>
 <table class="table table-bordered">
 <tr>
   <td>Id</td>
   <td>Title</td>
-   <td>Text</td>
+   <td>Author</td>
+   <td>Тэги</td>
    <td></td>
 </tr>
 <% @articles.each do |article| %>
     <tr>
       <td><%= article.id %></td>
       <td><%= article.title %></td>
-      <td><%= article.text %></td>
+      <td><%= article.author.name %></td>
+      <td> <%= link_to "Список тегов", article_tags_path(article.id) %></td>
       <td><%= link_to "Просмотреть", article_path(article.id) %></td>
     </tr>
 <% end %>
