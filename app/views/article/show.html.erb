@@ -3,4 +3,5 @@
 <li class="list-group-item">Id: <%= @article.id %></li>
 <li class="list-group-item">Title: <%= @article.title %></li>
 <li class="list-group-item">Text: <%= @article.text %></li>
+<li class="list-group-item"> <%= link_to "Список тегов", article_tags_path(@article.id) %></li>
 </ul>

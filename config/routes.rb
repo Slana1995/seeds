@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   get 'article/show'
 
+  get 'article/:id/tags' => 'article#tags', :as => :article_tags
+
   resources :author
   root 'author#index'
 
