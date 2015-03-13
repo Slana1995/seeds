@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+  resources :article
   get 'article/index'
 
   get 'article/show'

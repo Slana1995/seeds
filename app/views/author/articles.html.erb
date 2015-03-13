@@ -1,3 +1,4 @@
+<h2>Список статей</h2>
 <table class="table table-bordered">
 <tr>
   <td>Id</td>
@@ -10,6 +11,7 @@
       <td><%= article.id %></td>
       <td><%= article.title %></td>
       <td><%= article.text %></td>
+      <td><%= link_to "Просмотреть", article_path(article.id) %></td>
     </tr>
 <% end %>
 </table>
