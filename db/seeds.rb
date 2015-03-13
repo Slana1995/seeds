@@ -8,15 +8,18 @@
 # 20.times do
 #   Author.create(name: Faker::Name.name, email: Faker::Internet.email, city: Faker::Address.city, address: Faker::Address.street_address, born: Faker::Date.backward(100))
 # end
-20.times do
+puts "Generate seed"
+20.times do 
+  tag = FactoryGirl.create(:tag)
+end
+20.times do |i|
+  puts "Author #{i}"
   author = FactoryGirl.create(:author)
   rand(1..10).times do
     article = FactoryGirl.create(:article, author:author)
+    article.tags << [Tag.all.sample(3)]
     rand(0..10).times do
       comment = FactoryGirl.create(:comment, article:article)
     end
   end
-end
-20.times do 
-	teg = FactoryGirl.create(:tag)
 end
