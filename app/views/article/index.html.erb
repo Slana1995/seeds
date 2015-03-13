@@ -1,0 +1,18 @@
+<h1>Список статей</h1>
+<%= will_paginate @articles %>
+<table class="table table-bordered">
+<tr>
+  <td>Id</td>
+  <td>Title</td>
+   <td>Author</td>
+   <td></td>
+</tr>
+<% @articles.each do |article| %>
+    <tr>
+      <td><%= article.title %></td>
+      <td><%= article.text %></td>
+      <td><%= article.author.name %></td>
+      <td><%= link_to "Просмотреть", article_path(article.id) %></td>
+    </tr>
+<% end %>
+</table>

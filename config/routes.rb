@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
 
-  resources :article
+  get 'tag/:id/articles' => 'tag#articles', :as => :tag_articles
+
+  resources :article do 
+    resources :tags
   get 'article/index'
 
   get 'article/show'
 
   get 'article/:id/tags' => 'article#tags', :as => :article_tags
+
+  end
 
   resources :author
   root 'author#index'

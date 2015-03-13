@@ -4,10 +4,12 @@ class ArticleController < ApplicationController
   end
 
   def show
-  	@article = Article.find(params[:id])
-  end
-  def tags
     @article = Article.find(params[:id])
     @tags = @article.tags
+  end
+  def tags
+    @tags = @article.tags
+    @tag = Tag.find(params[:id])
+    @articles = @tag.articles.order('id DESC')
   end
 end
