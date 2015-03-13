@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+  resources :author
+  root 'author#index'
 
-  get 'author/index'
+  get 'author/:id' => 'author#show'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
