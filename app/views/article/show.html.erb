@@ -4,8 +4,8 @@
 <li class="list-group-item">Title: <%= @article.title %></li>
 <li class="list-group-item">Text: <%= @article.text %></li>
 <li class="list-group-item"> 
-  <% @tags.each do |tag| %>
-          <%=link_to tag.name, tag_articles_path(tag.id)%>
-  <%end%>
+    <% @tags.each do |tag| %>
+            <%=link_to tag.name, tag_articles_path(tag.id)%>
+    <%end%>
 </li>
 </ul>

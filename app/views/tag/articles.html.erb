@@ -4,6 +4,7 @@
   <td>Id</td>
   <td>Title</td>
    <td>Author</td>
+   <td>Tags</td>
    <td></td>
 </tr>
 <% @articles.each do |article| %>
@@ -11,6 +12,11 @@
       <td><%= article.id %></td>
       <td><%= article.title %></td>
       <td><%= article.author.name %></td>
+      <td>
+        <% article.tags.each do |tag| %>
+                <%=link_to tag.name, tag_articles_path(tag.id)%>
+        <%end%>
+      </td>
       <td><%= link_to "Просмотреть", article_path(article.id) %></td>
     </tr>
 <% end %>
