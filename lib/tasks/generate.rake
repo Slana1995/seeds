@@ -38,25 +38,26 @@ namespace :raketask do
         @article_id = a.id
       end
     end
-    @middle_count_comments = @count_comment.to_f/@count_article.to_f
+    @middle_count_comments = @count_comment/@count_article
     @tags = Tag.all
-    File.open("./public/plain/plain.html", "w+") do |f|
-      f.write("<html><head><meta charset=UTF-8><head><body><ul>")
-      f << "<li>Всего авторов - #{@count_author} </li>"
-      f << "<li> Всего статей - #{@count_article} </li>"
-      f << "<li> Всего комментириев к статьям #{@count_comment} </li>"
-      f << "<li> Самое большое число комментириев у статьи <a href='localhost:3000/article/#{@article_id}'>#{@article_name}</a> - #{@max_comments} </li>"
-      f << "<li> Среднее количество комментириев у статей - #{@middle_count_comments.round} </li>"
-      f << "<table><tr>"
+    File.open("./public/plain/" + DateTime.now.strftime('%H:%M:%S') + ".html", "w+") do |f|
+      f.write("<html><head><meta charset=UTF-8><link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css'><head><body><div class='container'<ul class='list-group'>")
+      f << "<li class='list-group-item'> Авторы<span class='badge'>#{@count_author}</span> </li>"
+      f << "<li class='list-group-item'> Статьи<span class='badge'> #{@count_article}</span> </li>"
+      f << "<li class='list-group-item'> Комментарии<span class='badge'> #{@count_comment}</span> </li>"
+      f << "<li class='list-group-item'> Самое большое число комментириев у статьи <a href='localhost:3000/article/#{@article_id}'>#{@article_name}</a> <span class='badge'>#{@max_comments}</span> </li>"
+      f << "<li class='list-group-item'> Среднее количество комментириев у статей <span class='badge'> #{@middle_count_comments} </span></li>"
+      f << "<br><h1>Таблица тегов</h1><br>"
+      f << "<table class='table table-bordered'><tr><td>Тэги</td><td>Количество статей с данным тегом</td></tr>"
       @tags.each do |t|
-        f << "td"
+        f << "<tr><td>"
         f << t.name
-        f << "   "
+        f << "</td><td>"
         f << t.articles.count
-        f << "</td>"
+        f << "</td></tr>"
       end
-      f << "</tr></table>"
-      f.write("</ul></body></html>")
+      f << "</table>"
+      f.write("</ul></div></body></html>")
     end
   end
 end
