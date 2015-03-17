@@ -2,8 +2,6 @@ Rails.application.routes.draw do
 
   get 'admin/index'
 
-  get 'public/:filename' => 'admin#index'
-
   get 'tag/:id/articles' => 'tag#articles', :as => :tag_articles
 
   resources :article do 

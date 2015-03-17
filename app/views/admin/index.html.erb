@@ -2,5 +2,7 @@
 <p>Find me in app/views/admin/index.html.erb</p>
 <ul>
 <% Dir.foreach("public/plain/") do |x| %>
-	<li><%= link_to "Goo to #{x}",  Rails.public_path.join(x).to_s%></li>
+  <li>
+    <%= link_to 'Goo to' + "#{x}", '/plain/' + "#{x}", { target: '_blank' } %>
+  </li>
 <%end%>
