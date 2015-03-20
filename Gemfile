@@ -19,7 +19,7 @@ gem 'factory_girl_rails'
 gem 'awesome_print'
 gem 'annotate'
 gem 'will_paginate'
- gem 'launchy'
+gem 'bcrypt'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks

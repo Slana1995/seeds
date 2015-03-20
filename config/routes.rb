@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 
-  get 'login' => 'sessions#new'
+  get 'login' => 'session#new'
 
   post 'login' => 'session#create'
 
-  get 'logout' => 'session#destroy'
+  delete 'logout' => 'session#destroy'
 
   get 'users/show'
 
