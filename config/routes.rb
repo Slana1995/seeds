@@ -1,5 +1,17 @@
 Rails.application.routes.draw do
 
+  get 'login' => 'sessions#new'
+
+  post 'login' => 'session#create'
+
+  get 'logout' => 'session#destroy'
+
+  get 'users/show'
+
+  get 'users/new'
+
+  get 'users/create'
+
   get 'admin/index'
 
   get 'tag/:id/articles' => 'tag#articles', :as => :tag_articles
